@@ -7,14 +7,15 @@ def set_list(list_name):
     return list_name
 
 def get_data(list_file_name):
-    data = []
-    with open(f'lists/{list_file_name}', 'r') as json_file:
-        data = json.load(json_file)
-    return data
+
+  data = []
+  with open(f'lists/{list_file_name}', 'r') as json_file:
+    data = json.load(json_file)
+  return data
 
 def update_data(list_file_name, new_data):
     with open(f'lists/{list_file_name}', 'w') as json_file:
-        json.dump(new_data, json_file, sort_key=True, indent=True)
+        json.dump(new_data, json_file, sort_keys=True, indent=True)
 
 def add_item(args):
     list_name = set_list(args[0])
@@ -30,7 +31,7 @@ def add_item(args):
     data.append(new_note)
     update_data(list_name, data)
 
-def show_item(args):
+def show_items(args):
     list_name = set_list(args[0])
     if(not list_name):
         return

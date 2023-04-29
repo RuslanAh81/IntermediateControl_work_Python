@@ -1,0 +1,13 @@
+
+The following commands are available:
+1. list show => shows all the lists available
+2. list use list_name => use a given list
+3. list create list_name => create a list with given name
+3. note add item_names => add a note item to the selected list
+4. note all => show all the note items in the chosen list
+5. note edit item_id new_item_name => edit the note item providing the id and new title
+6. note remove item_id => remove a note item
+7. note complete item_id => mark a note item as completed
+8. note incomplete item_id => mark a note item as incomplete
+9. help => prints this...
+10. quit => exit the application
