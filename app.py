@@ -14,7 +14,7 @@ def parse(command):
             return cmd_name, cmd_list[2:]
         else:
             return 'invalid', []
-    elif (cmd_type == 'todo'):
+    elif (cmd_type == 'note'):
         cmd_name = cmd_list[1]
         if (cmd_name in ['add', 'all', 'edit', 'remove', 'complete', 'incomplete']):
             return cmd_name, cmd_list[2:]
@@ -25,7 +25,7 @@ def parse(command):
 
 
 def main():
-  print('Started the Todo application...')
+  print('Started the Note application...')
   current_list = ''
   while(1):
     # take the command as input from the user
@@ -47,8 +47,8 @@ def main():
       else:
         print('Successfuly chosen this list...')
         current_list = file_name
-    elif (command.split()[0] == 'todo'):
-      # todo type of command
+    elif (command.split()[0] == 'note'):
+      # note type of command
       command_args.insert(0, current_list)
       commands_dict[command_name](command_args)
     else:

@@ -1,14 +1,14 @@
 import commands.lists
-import commands.todos
+import commands.notes
 
 commands_dict = {
     'show': lists.show_lists,
     'use': lists.use_list,
     'create': lists.create_list,
-    'all': todos.show_items,
-    'add': todos.add_item,
-    'edit': todos.edit_item,
-    'remove': todos.remove_item,
-    'complete': todos.complete_item,
-    'incomplete': todos.incomplete_item
+    'all': notes.show_items,
+    'add': notes.add_item,
+    'edit': notes.edit_item,
+    'remove': notes.remove_item,
+    'complete': notes.complete_item,
+    'incomplete': notes.incomplete_item
 }
