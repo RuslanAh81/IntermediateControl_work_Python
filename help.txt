@@ -1,0 +1,18 @@
+
+
+The following commands are available:
+1. list show => Показать список всех list
+2. list use list_name => Выбрать list для работы
+3. list create list_name => Создать lisе с именем
+3. note add item_names => Добавить заметку в list
+4. note all => Показать все Заметки в list
+5. note showit item_id => Показать замеку по id
+5. note edit item_id new_item_name => Изменить Заметку под id
+6. note remove item_id => Удалить Заметку по id
+7. note complete item_id => Отметить Заметку как выполненную
+8. note incomplete item_id => Отметить Заметку как невыполненую
+9. help => Вывести хелп...
+10. quit => Выход
+
+Пример записи заметки : 'note add note1' или 'note add Позвонить_маме'
+

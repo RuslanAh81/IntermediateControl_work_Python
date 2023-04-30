@@ -7,14 +7,15 @@ def set_list(list_name):
     return list_name
 
 def get_data(list_file_name):
-    data = []
-    with open(f'lists/{list_file_name}', 'r') as json_file:
-        data = json.load(json_file)
-    return data
+
+  data = []
+  with open(f'lists/{list_file_name}', 'r') as json_file:
+    data = json.load(json_file)
+  return data
 
 def update_data(list_file_name, new_data):
     with open(f'lists/{list_file_name}', 'w') as json_file:
-        json.dump(new_data, json_file, sort_key=True, indent=True)
+        json.dump(new_data, json_file, sort_keys=True, indent=True)
 
 def add_item(args):
     list_name = set_list(args[0])
@@ -30,7 +31,7 @@ def add_item(args):
     data.append(new_note)
     update_data(list_name, data)
 
-def show_item(args):
+def show_items(args):
     list_name = set_list(args[0])
     if(not list_name):
         return
@@ -45,7 +46,29 @@ def show_item(args):
                 complete += 1
         print(f'{complete}/{len(data)} completed!')
 
+def show_item(args):
+    list_name = set_list(args[0])
+    if (not list_name):
+        return
+    data = get_data(list_name)
+    item_id = int(args[1])
+    complete = 0
+    if (len(data) ==0):
+        print('No notes in the list, why dont you add one?')
+    else:
+        # print(item_id)
+        for index, note_item in enumerate(data):
+            if (item_id-1 == index):
+                print(note_item['title'])
+                print('Created_at :' + note_item['created_at'])
+                print('Completed :{}'.format(note_item['completed']))
+
+
+
 def edit_item(args):
+    """
+    Edit a particular note item
+    """
     list_name = set_list(args[0])
     if (not list_name):
         return
@@ -54,11 +77,12 @@ def edit_item(args):
     data = get_data(list_name)
     updated_note ={
         'title': new_title,
-        'create_at': datetime.now().strftime("%d/%m/%Y %H:%M:S"),
-        'complete': False
+        'created_at': datetime.now().strftime("%d/%m/%Y %H:%M:S"),
+        'completed': False
     }
     data[item_id - 1] = updated_note
     update_data(list_name, data)
+
 
 def remove_item(args):
     list_name = set_list(args[0])
@@ -68,6 +92,7 @@ def remove_item(args):
     data = get_data(list_name)
     data.pop(item_id - 1)
     update_data(list_name, data)
+
 
 def complete_item(args):
     list_name = set_list(args[0])

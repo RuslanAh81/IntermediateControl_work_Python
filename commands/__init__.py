@@ -6,6 +6,7 @@ commands_dict = {
     'use': lists.use_list,
     'create': lists.create_list,
     'all': notes.show_items,
+    'showit': notes.show_item,
     'add': notes.add_item,
     'edit': notes.edit_item,
     'remove': notes.remove_item,

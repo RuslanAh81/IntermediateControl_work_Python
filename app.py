@@ -16,7 +16,7 @@ def parse(command):
             return 'invalid', []
     elif (cmd_type == 'note'):
         cmd_name = cmd_list[1]
-        if (cmd_name in ['add', 'all', 'edit', 'remove', 'complete', 'incomplete']):
+        if (cmd_name in ['add', 'all', 'showit', 'edit', 'remove', 'complete', 'incomplete']):
             return cmd_name, cmd_list[2:]
         else:
             return 'invalid', []
